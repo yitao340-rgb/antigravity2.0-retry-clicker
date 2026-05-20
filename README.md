@@ -1,5 +1,23 @@
 # Antigravity 2.0 Auto-Clicker Background Daemon & Controller
 
+> [!WARNING]
+> ### ⚠️ System Compatibility Notice / 系统兼容性声明
+> **This tool is strictly built for macOS and the macOS Desktop client of Antigravity 2.0.**
+> - **Supported OS**: macOS (macOS 10.15+, fully supports Apple Silicon M-series & Intel Macs)
+> - **Required App**: Antigravity 2.0 Desktop App for Mac
+> - **Dependencies**: Python 3 (installed by default or via Xcode Command Line Tools)
+> 
+> *Do NOT run the automated installer (`install.sh`) on Windows or Linux! It relies on macOS `launchd` plist daemons and Apple application sandboxing structures. Running it on unsupported systems will fail.*
+> 
+> **本脚本及安装程序专为 macOS 系统以及 Antigravity 2.0 Mac 桌面客户端定制开发！**
+> - **支持系统**: macOS (macOS 10.15及以上，完美兼容 M系列芯片 及 Intel芯片)
+> - **必须应用**: Antigravity 2.0 Mac 桌面客户端版
+> - **运行依赖**: Python 3 (macOS 系统通常自带或通过 Xcode 工具链自动安装)
+> 
+> *请勿在 Windows 或 Linux 系统中运行一键安装脚本 (`install.sh`)！本方案强依赖于 macOS 特有的 `launchd` 后台自启动代理守护服务（plist）以及 Apple 专属的应用程序缓存沙盒路径。在非 macOS 系统中运行将导致安装失败。*
+
+---
+
 > 🤖 **For Developers & AI Agents**: This repository contains a fully automated macOS launchd agent, Chrome DevTools Protocol (CDP) WebSocket injector, and a premium in-page iOS-style glassmorphism control panel. It is designed to be 100% robust against client page refreshes (`Cmd+R`), app restarts, and UI modifications.
 
 中文安装与使用指南请见下方。
@@ -75,6 +93,13 @@ rm ~/Library/LaunchAgents/com.yitao.antigravity.clicker.plist
 # 3. 删除永久安装目录及日志
 rm -rf ~/.antigravity-clicker
 ```
+
+---
+
+## 🛡️ Systems Not Supported (关于其他操作系统)
+
+- **Windows**: Windows 版本的 Antigravity 桌面客户端使用不同的目录路径结构，且不支持 `.plist` 自启代理。如需使用，需重新开发基于 Windows PowerShell 或 Task Scheduler（任务计划程序）的自启脚本，并重新适配 `DevToolsActivePort` 在 `%APPDATA%` 下的存放路径。
+- **Linux**: Linux 环境下无 `.plist` 服务管理器，而是使用 `systemd` 或 `udev`，且应用配置通常位于 `~/.config/Antigravity/`。本自动化安装包只支持标准的 macOS 架构。
 
 ---
 
